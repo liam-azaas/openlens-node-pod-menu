@@ -27,7 +27,8 @@ jobs:
       - name: Build extension
         run: npm run build
 
-      - name: Publish extension
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.3.0
+        with:  
+          path: ./dist/
+                
